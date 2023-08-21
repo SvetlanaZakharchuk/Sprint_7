@@ -1,4 +1,4 @@
-package sprint_7.models;
+package samokat.models;
 
 public class CourierCreds {
     private String login;
@@ -21,8 +21,5 @@ public class CourierCreds {
     //получаем только пароль, чтобы проверить авторизацию без логина
     public static CourierCreds credsFromPassword(Courier courier) {
         return new CourierCreds(null, courier.getPassword());
-
     }
-
-
 }

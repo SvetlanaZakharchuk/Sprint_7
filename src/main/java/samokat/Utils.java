@@ -1,4 +1,4 @@
-package sprint_7;
+package samokat;
 
 import java.util.Random;
 
@@ -16,5 +16,4 @@ public class Utils {
 
         return buffer.toString();
     }
-
 }

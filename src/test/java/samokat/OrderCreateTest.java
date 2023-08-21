@@ -1,5 +1,6 @@
-package sprint_7;
+package samokat;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
@@ -7,16 +8,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import sprint_7.order.OrderClient;
+import samokat.order.OrderClient;
 
 import java.io.File;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 
-
 @RunWith(Parameterized.class)
 public class OrderCreateTest {
-
 
     @Parameterized.Parameter
     public String path;
@@ -33,24 +32,28 @@ public class OrderCreateTest {
     }
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         orderClient = new OrderClient();
     }
 
     //создаем заказ
     @Test
-    public void CreateOrder() {
+    @DisplayName("cresteOrderTest")
+    public void createOrderTest() {
 
         File json = new File(path);
         Response response = orderClient.create(json);
+
         Assert.assertEquals("Неверный статус код", HttpStatus.SC_CREATED, response.statusCode());
     }
 
     //проверка, что тело ответа возвращает track
     @Test
-    public void CreateOrderReturnTrack() {
+    @DisplayName("createOrderReturnTrackTest")
+    public void createOrderReturnTrackTest() {
         File json = new File(path);
         Response response = orderClient.create(json);
+
         int track = response.path("track");
         response.then().assertThat().body("track", notNullValue());
     }

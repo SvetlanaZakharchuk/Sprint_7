@@ -1,4 +1,4 @@
-package sprint_7.models;
+package samokat.models;
 
 public class Courier {
     private String login;
@@ -27,6 +27,4 @@ public class Courier {
         this.firstName = firstName;
         return this;
     }
-
-
 }

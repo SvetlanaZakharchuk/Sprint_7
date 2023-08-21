@@ -1,8 +1,8 @@
-package sprint_7.Courier;
+package samokat.Courier;
 
-import sprint_7.models.Courier;
+import samokat.models.Courier;
 
-import static sprint_7.Utils.randomString;
+import static samokat.Utils.randomString;
 
 public class CourierGenerator {
 
